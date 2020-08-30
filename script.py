@@ -2,6 +2,7 @@ import os
 import boto3
 import sys
 import time
+import botocore
 from github import Github
 
 #bookId="3"
@@ -57,8 +58,17 @@ while not os.path.exists("c:\\output.html") or not os.path.exists("c:\\output.ht
 
 s3_2 = boto3.resource('s3')
 
-s3_2.meta.client.upload_file('c:\\output.html', "daf-yomi", "assets/"+bookId+"/"+dafId+".html")
-s3_2.meta.client.upload_file('c:\\output.html_files\\image.png', "daf-yomi", "assets/"+bookId+"/"+dafId+".png")
+try:
+    s3_2.meta.client.upload_file('c:\\output.html', "daf-yomi", "assets/"+bookId+"/"+dafId+".html")
+    s3_2.meta.client.upload_file('c:\\output.html_files\\image.png', "daf-yomi", "assets/"+bookId+"/"+dafId+".png")
+
+except botocore.exceptions.ClientError as err:
+    f = open("exception.txt", "a")
+    f.write("Bucket {} already exists!".format(err.response['Error']['BucketName']))
+    f.close()
+    print()
+    raise err
+
 
 #with open("c:\\output.html", "rb") as f:
 #    s3.upload_fileobj(f, "daf-yomi", "assets/"+bookId+"/"+dafId+".html")
