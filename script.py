@@ -1,48 +1,51 @@
-import os
-import boto3
-import sys
-import time
-
-#bookId=sys.argv[1:][0]
-#dafId=sys.argv[1:][1]
+# import os
+# import boto3
+# import sys
+# import time
 
 bookId="3"
 dafId="91"
 
-print(f"{bookId} - {dafId}")
+# bookId=sys.argv[1:][0]
+# dafId=sys.argv[1:][1]
 
-if os.path.isfile("c:\\upload.mm"):
-    print("remove upload.mm")
-    os.remove("c:\\upload.mm")
+with open("c:\\"+bookId+"_"+dafId+".txt", 'w') as f:
+    f.write("asdjhasdkhjaskdjhaksdlhj")
 
-if os.path.isfile("c:\\upload.html"):
-    print("remove upload.html")
-    os.remove("c:\\upload.html")
+# print(f"{bookId} - {dafId}")
 
-if os.path.isfile("c:\\output.html_files\\image.png"):
-    print("remove image.png")
-    os.remove("c:\\output.html_files\\image.png")    
+# if os.path.isfile("c:\\upload.mm"):
+#     print("remove upload.mm")
+#     os.remove("c:\\upload.mm")
 
-s3 = boto3.client('s3')
-with open('c:\\upload.mm', 'wb') as f:
-    s3.download_fileobj('daf-yomi', 'assets/upload/'+bookId+"_"+dafId+".mm", f)
+# if os.path.isfile("c:\\upload.html"):
+#     print("remove upload.html")
+#     os.remove("c:\\upload.html")
 
-os.system('SCHTASKS.EXE /RUN /TN "ouriel"') 
+# if os.path.isfile("c:\\output.html_files\\image.png"):
+#     print("remove image.png")
+#     os.remove("c:\\output.html_files\\image.png")    
 
-time_to_wait = 40
-time_counter = 0
-while not os.path.exists("c:\\output.html") or not os.path.exists("c:\\output.html_files\\image.png"):
-    print(".")
-    time.sleep(1)
-    time_counter += 1
-    if time_counter > time_to_wait:
-        print("timeout")
-        break
+# s3 = boto3.client('s3')
+# with open('c:\\upload.mm', 'wb') as f:
+#     s3.download_fileobj('daf-yomi', 'assets/upload/'+bookId+"_"+dafId+".mm", f)
 
-with open("c:\\output.html", "rb") as f:
-    s3.upload_fileobj(f, "daf-yomi", "assets/"+bookId+"/"+dafId+".html")
+# os.system('SCHTASKS.EXE /RUN /TN "ouriel"') 
 
-with open("c:\\output.html_files\\image.png", "rb") as f:
-    s3.upload_fileobj(f, "daf-yomi", "assets/"+bookId+"/"+dafId+".png")
+# time_to_wait = 40
+# time_counter = 0
+# while not os.path.exists("c:\\output.html") or not os.path.exists("c:\\output.html_files\\image.png"):
+#     print(".")
+#     time.sleep(1)
+#     time_counter += 1
+#     if time_counter > time_to_wait:
+#         print("timeout")
+#         break
 
-print("file uploaded to s3")
+# with open("c:\\output.html", "rb") as f:
+#     s3.upload_fileobj(f, "daf-yomi", "assets/"+bookId+"/"+dafId+".html")
+
+# with open("c:\\output.html_files\\image.png", "rb") as f:
+#     s3.upload_fileobj(f, "daf-yomi", "assets/"+bookId+"/"+dafId+".png")
+
+# print("file uploaded to s3")
