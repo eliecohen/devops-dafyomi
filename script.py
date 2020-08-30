@@ -60,4 +60,6 @@ with open("c:\\output.html", "rb") as f:
 with open("c:\\output.html_files\\image.png", "rb") as f:
     s3.upload_fileobj(f, "daf-yomi", "assets/"+bookId+"/"+dafId+".png")
 
+time.sleep(10)
+
 print("file uploaded to s3")
