@@ -1,5 +1,5 @@
 import os
-#import boto3
+import boto3
 import sys
 import time
 
@@ -14,20 +14,20 @@ with open("c:\\"+bookId+"_"+dafId+".txt", 'w') as f:
 
 print(f"{bookId} - {dafId}")
 
-# if os.path.isfile("c:\\upload.mm"):
-#     print("remove upload.mm")
-#     os.remove("c:\\upload.mm")
+if os.path.isfile("c:\\upload.mm"):
+    print("remove upload.mm")
+    os.remove("c:\\upload.mm")
 
-# if os.path.isfile("c:\\upload.html"):
-#     print("remove upload.html")
-#     os.remove("c:\\upload.html")
+if os.path.isfile("c:\\upload.html"):
+    print("remove upload.html")
+    os.remove("c:\\upload.html")
 
-# if os.path.isfile("c:\\output.html_files\\image.png"):
-#     print("remove image.png")
-#     os.remove("c:\\output.html_files\\image.png")    
+if os.path.isfile("c:\\output.html_files\\image.png"):
+    print("remove image.png")
+    os.remove("c:\\output.html_files\\image.png")    
 
-# with open("c:\\a.txt", 'w') as f:
-#     f.write("asdjhasdkhjaskdjhaksdlhj")    
+with open("c:\\a.txt", 'w') as f:
+    f.write("asdjhasdkhjaskdjhaksdlhj")    
 
 # s3 = boto3.client('s3')
 # with open('c:\\upload.mm', 'wb') as f:
