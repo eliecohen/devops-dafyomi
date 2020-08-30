@@ -55,7 +55,6 @@ while not os.path.exists("c:\\output.html") or not os.path.exists("c:\\output.ht
         print("timeout")
         break
 
-
 #s3_2 = boto3.resource('s3')
 
 os.system("aws s3 cp c:\\output.html s3://daf-yomi/assets/"+bookId+"/"+dafId+".html") 
