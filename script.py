@@ -12,23 +12,23 @@ dafId="91"
 with open("c:\\"+bookId+"_"+dafId+".txt", 'w') as f:
     f.write("asdjhasdkhjaskdjhaksdlhj")
 
-# print(f"{bookId} - {dafId}")
+print(f"{bookId} - {dafId}")
 
-# if os.path.isfile("c:\\upload.mm"):
-#     print("remove upload.mm")
-#     os.remove("c:\\upload.mm")
+if os.path.isfile("c:\\upload.mm"):
+    print("remove upload.mm")
+    os.remove("c:\\upload.mm")
 
-# if os.path.isfile("c:\\upload.html"):
-#     print("remove upload.html")
-#     os.remove("c:\\upload.html")
+if os.path.isfile("c:\\upload.html"):
+    print("remove upload.html")
+    os.remove("c:\\upload.html")
 
-# if os.path.isfile("c:\\output.html_files\\image.png"):
-#     print("remove image.png")
-#     os.remove("c:\\output.html_files\\image.png")    
+if os.path.isfile("c:\\output.html_files\\image.png"):
+    print("remove image.png")
+    os.remove("c:\\output.html_files\\image.png")    
 
-# s3 = boto3.client('s3')
-# with open('c:\\upload.mm', 'wb') as f:
-#     s3.download_fileobj('daf-yomi', 'assets/upload/'+bookId+"_"+dafId+".mm", f)
+s3 = boto3.client('s3')
+with open('c:\\upload.mm', 'wb') as f:
+    s3.download_fileobj('daf-yomi', 'assets/upload/'+bookId+"_"+dafId+".mm", f)
 
 # os.system('SCHTASKS.EXE /RUN /TN "ouriel"') 
 
