@@ -1,5 +1,5 @@
 import os
-import boto3
+#import boto3
 import sys
 import time
 
@@ -36,7 +36,7 @@ print(f"{bookId} - {dafId}")
 # with open("c:\\b.txt", 'w') as f:
 #     f.write("asdjhasdkhjaskdjhaksdlhj")       
 
-# os.system('SCHTASKS.EXE /RUN /TN "ouriel"') 
+os.system('SCHTASKS.EXE /RUN /TN "ouriel"') 
 
 # with open("c:\\"+bookId+"_"+dafId+".txt", 'w') as f:
 #     f.write("asdjhasdkhjaskdjhaksdlhj")
