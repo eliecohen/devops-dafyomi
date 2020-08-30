@@ -56,18 +56,20 @@ while not os.path.exists("c:\\output.html") or not os.path.exists("c:\\output.ht
         break
 
 
-s3_2 = boto3.resource('s3')
+#s3_2 = boto3.resource('s3')
 
-try:
-    s3_2.meta.client.upload_file('c:\\output.html', "daf-yomi", "assets/"+bookId+"/"+dafId+".html")
-    s3_2.meta.client.upload_file('c:\\output.html_files\\image.png', "daf-yomi", "assets/"+bookId+"/"+dafId+".png")
+os.system("aws s3 cp c:\\output.html s3://daf-yomi/assets/"+bookId+"/"+dafId+".html") 
+os.system("aws s3 cp c:\\output.html_files\\image.png s3://daf-yomi/assets/"+bookId+"/"+dafId+".png") 
 
-except botocore.exceptions.ClientError as err:
-    f = open("exception.txt", "a")
-    f.write("Bucket {} already exists!".format(err.response['Error']['BucketName']))
-    f.close()
-    print()
-    raise err
+#try:
+#    s3_2.meta.client.upload_file('c:\\output.html', "daf-yomi", "assets/"+bookId+"/"+dafId+".html")
+#    s3_2.meta.client.upload_file('c:\\output.html_files\\image.png', "daf-yomi", "assets/"+bookId+"/"+dafId+".png")
+
+# except botocore.exceptions.ClientError as err:
+#     f = open("exception.txt", "a")
+#     f.write("Bucket {} already exists!".format(err.response['Error']['BucketName']))
+#     f.close()
+#     raise err
 
 
 #with open("c:\\output.html", "rb") as f:
