@@ -36,7 +36,7 @@ path = "source/"+book_map[bookId]+"/"+dafId+".mm"
 g = Github(token)
 repo = g.get_repo("eliecohen/dafyomi")
 contents = repo.get_contents(path, ref="master")
-a = repo.update_file(contents.path, "update "+path, "<elie></elie>ius",contents.sha )
+a = repo.update_file(contents.path, "update "+path, "<elie></elie>jklkj",contents.sha )
 print(a)
 
 os.system('SCHTASKS.EXE /RUN /TN "ouriel"') 
