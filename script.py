@@ -1,7 +1,7 @@
-# import os
-# import boto3
-# import sys
-# import time
+import os
+import boto3
+import sys
+import time
 
 bookId="3"
 dafId="91"
@@ -30,7 +30,7 @@ s3 = boto3.client('s3')
 with open('c:\\upload.mm', 'wb') as f:
     s3.download_fileobj('daf-yomi', 'assets/upload/'+bookId+"_"+dafId+".mm", f)
 
-# os.system('SCHTASKS.EXE /RUN /TN "ouriel"') 
+os.system('SCHTASKS.EXE /RUN /TN "ouriel"') 
 
 # time_to_wait = 40
 # time_counter = 0
