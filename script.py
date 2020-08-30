@@ -11,20 +11,20 @@ dafId=sys.argv[1:][1]
 
 print(f"{bookId} - {dafId}")
 
-if os.path.isfile("c:\\upload.mm"):
-    print("remove upload.mm")
-    os.remove("c:\\upload.mm")
+if os.path.isfile("c:\\flowchart.mm"):
+    print("remove flowchart.mm")
+    os.remove("c:\\flowchart.mm")
 
-if os.path.isfile("c:\\upload.html"):
-    print("remove upload.html")
-    os.remove("c:\\upload.html")
+if os.path.isfile("c:\\output.html"):
+    print("remove output.html")
+    os.remove("c:\\output.html")
 
 if os.path.isfile("c:\\output.html_files\\image.png"):
     print("remove image.png")
     os.remove("c:\\output.html_files\\image.png")    
 
 s3 = boto3.client('s3')
-with open('c:\\upload.mm', 'wb') as f:
+with open('c:\\flowchart.mm', 'wb') as f:
     s3.download_fileobj('daf-yomi', 'assets/upload/'+bookId+"_"+dafId+".mm", f)
 
 os.system('SCHTASKS.EXE /RUN /TN "ouriel"') 
