@@ -54,11 +54,17 @@ while not os.path.exists("c:\\output.html") or not os.path.exists("c:\\output.ht
         print("timeout")
         break
 
-with open("c:\\output.html", "rb") as f:
-    s3.upload_fileobj(f, "daf-yomi", "assets/"+bookId+"/"+dafId+".html")
 
-with open("c:\\output.html_files\\image.png", "rb") as f:
-    s3.upload_fileobj(f, "daf-yomi", "assets/"+bookId+"/"+dafId+".png")
+s3_2 = boto3.resource('s3')
+
+s3_2.meta.client.upload_file('c:\\output.html', "daf-yomi", "assets/"+bookId+"/"+dafId+".html")
+s3_2.meta.client.upload_file('c:\\output.html_files\\image.png', "daf-yomi", "assets/"+bookId+"/"+dafId+".png")
+
+#with open("c:\\output.html", "rb") as f:
+#    s3.upload_fileobj(f, "daf-yomi", "assets/"+bookId+"/"+dafId+".html")
+
+#with open("c:\\output.html_files\\image.png", "rb") as f:
+#    s3.upload_fileobj(f, "daf-yomi", "assets/"+bookId+"/"+dafId+".png")
 
 time.sleep(10)
 
