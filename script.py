@@ -30,13 +30,16 @@ with open('c:\\flowchart.mm', 'wb') as f:
 
 with open ("c:\\github_token", "r") as myfile:
     token=myfile.readlines()[0]
+
+flowchart_content = open("c:\\flowchart.mm", "r").read() 
+
    
 book_map = {"1":"brachot","2":"shabat","3":"eruvin"}
 path = "source/"+book_map[bookId]+"/"+dafId+".mm"
 g = Github(token)
 repo = g.get_repo("eliecohen/dafyomi")
 contents = repo.get_contents(path, ref="master")
-a = repo.update_file(contents.path, "update "+path, "<elie></elie>jklkj",contents.sha )
+a = repo.update_file(contents.path, "update "+path, flowchart_content, contents.sha )
 print(a)
 
 os.system('SCHTASKS.EXE /RUN /TN "ouriel"') 
