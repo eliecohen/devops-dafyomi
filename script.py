@@ -1,15 +1,15 @@
+import os
+import boto3
+import sys
+import time
 
+bookId=sys.argv[1:][0]
+dafId=sys.argv[1:][1]
 
-with open('c:\\aaaaaaaaaa.txt', 'w') as f:
+with open("c:\\"+bookId+"_"+dafId+".txt", 'w') as f:
     f.write("asdjhasdkhjaskdjhaksdlhj")
 
-# import os
-# import boto3
-# import sys
-# import time
 
-# bookId=sys.argv[1:][0]
-# dafId=sys.argv[1:][1]
 
 # print(f"{bookId} - {dafId}")
 
