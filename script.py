@@ -1,7 +1,7 @@
-import os
-import boto3
-import sys
-import time
+# import os
+# import boto3
+# import sys
+# import time
 
 bookId="3"
 dafId="91"
@@ -14,35 +14,35 @@ with open("c:\\"+bookId+"_"+dafId+".txt", 'w') as f:
 
 print(f"{bookId} - {dafId}")
 
-if os.path.isfile("c:\\upload.mm"):
-    print("remove upload.mm")
-    os.remove("c:\\upload.mm")
+# if os.path.isfile("c:\\upload.mm"):
+#     print("remove upload.mm")
+#     os.remove("c:\\upload.mm")
 
-if os.path.isfile("c:\\upload.html"):
-    print("remove upload.html")
-    os.remove("c:\\upload.html")
+# if os.path.isfile("c:\\upload.html"):
+#     print("remove upload.html")
+#     os.remove("c:\\upload.html")
 
-if os.path.isfile("c:\\output.html_files\\image.png"):
-    print("remove image.png")
-    os.remove("c:\\output.html_files\\image.png")    
+# if os.path.isfile("c:\\output.html_files\\image.png"):
+#     print("remove image.png")
+#     os.remove("c:\\output.html_files\\image.png")    
 
-with open("c:\\a.txt", 'w') as f:
-    f.write("asdjhasdkhjaskdjhaksdlhj")    
+# with open("c:\\a.txt", 'w') as f:
+#     f.write("asdjhasdkhjaskdjhaksdlhj")    
 
-s3 = boto3.client('s3')
-with open('c:\\upload.mm', 'wb') as f:
-    s3.download_fileobj('daf-yomi', 'assets/upload/'+bookId+"_"+dafId+".mm", f)
+# s3 = boto3.client('s3')
+# with open('c:\\upload.mm', 'wb') as f:
+#     s3.download_fileobj('daf-yomi', 'assets/upload/'+bookId+"_"+dafId+".mm", f)
 
-with open("c:\\b.txt", 'w') as f:
-    f.write("asdjhasdkhjaskdjhaksdlhj")       
+# with open("c:\\b.txt", 'w') as f:
+#     f.write("asdjhasdkhjaskdjhaksdlhj")       
 
-os.system('SCHTASKS.EXE /RUN /TN "ouriel"') 
+# os.system('SCHTASKS.EXE /RUN /TN "ouriel"') 
 
-with open("c:\\"+bookId+"_"+dafId+".txt", 'w') as f:
-    f.write("asdjhasdkhjaskdjhaksdlhj")
+# with open("c:\\"+bookId+"_"+dafId+".txt", 'w') as f:
+#     f.write("asdjhasdkhjaskdjhaksdlhj")
 
-with open("c:\\c.txt", 'w') as f:
-    f.write("asdjhasdkhjaskdjhaksdlhj")       
+# with open("c:\\c.txt", 'w') as f:
+#     f.write("asdjhasdkhjaskdjhaksdlhj")       
 
 # time_to_wait = 40
 # time_counter = 0
