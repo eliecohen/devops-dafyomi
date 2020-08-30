@@ -1,7 +1,7 @@
-# import os
-# import boto3
-# import sys
-# import time
+import os
+import boto3
+import sys
+import time
 
 bookId="3"
 dafId="91"
