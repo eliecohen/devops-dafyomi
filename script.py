@@ -42,7 +42,7 @@ repo = g.get_repo("eliecohen/dafyomi")
 try:
     contents = repo.get_contents(path, ref="master")
     a = repo.update_file(contents.path, "update "+path, flowchart_content, contents.sha )
-except github.GithubException as e:    
+except:
     a = repo.create_file(path, "create "+path, flowchart_content)
 print(a)
 
