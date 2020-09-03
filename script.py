@@ -39,8 +39,11 @@ book_map = {"1":"brachot","2":"shabat","3":"eruvin"}
 path = "source/"+book_map[bookId]+"/"+dafId+".mm"
 g = Github(token)
 repo = g.get_repo("eliecohen/dafyomi")
-contents = repo.get_contents(path, ref="master")
-a = repo.update_file(contents.path, "update "+path, flowchart_content, contents.sha )
+try:
+    contents = repo.get_contents(path, ref="master")
+    a = repo.update_file(contents.path, "update "+path, flowchart_content, contents.sha )
+except github.GithubException as e:    
+    a = repo.create_file(path, "create "+path, flowchart_content)
 print(a)
 
 os.system('SCHTASKS.EXE /RUN /TN "ouriel"') 
