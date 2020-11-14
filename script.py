@@ -35,7 +35,7 @@ with open ("c:\\github_token", "r") as myfile:
 flowchart_content = open("c:\\flowchart.mm", "r").read() 
 
    
-book_map = {"1":"brachot","2":"shabat","3":"eruvin"}
+book_map = {"1":"brachot","2":"shabat","3":"eruvin","4":"psachim"}
 path = "source/"+book_map[bookId]+"/"+dafId+".mm"
 g = Github(token)
 repo = g.get_repo("eliecohen/dafyomi")
