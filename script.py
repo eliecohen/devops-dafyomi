@@ -34,8 +34,48 @@ with open ("c:\\github_token", "r") as myfile:
 
 flowchart_content = open("c:\\flowchart.mm", "r").read() 
 
-   
-book_map = {"1":"brachot","2":"shabat","3":"eruvin","4":"psachim"}
+  
+book_map = {
+        "1":"berakhot",
+        "2":"shabbat",
+        "3":"eruvin",
+        "4":"pesachim",
+        "5":"shekalim",
+        "6":"yoma",
+        "7":"sukkah",
+        "8":"beitzah",
+        "9":"rosh_hashanah",
+        "10":"taanit",
+        "11":"megillah",
+        "12":"moed_katan",
+        "13":"chagigah",
+        "14":"yevamot",
+        "15":"ketubot",
+        "16":"nedarim",
+        "17":"nazir",
+        "18":"sotah",
+        "19":"gittin",
+        "20":"kiddushin",
+        "21":"bava_kamma",
+        "22":"bava_metzia",
+        "23":"bava_batra",
+        "24":"sanhedrin",
+        "25":"makkot",
+        "26":"shevuot",
+        "27":"avodah_zarah",
+        "28":"horayot",
+        "29":"zevachim",
+        "30":"menachot",
+        "31":"chullin",
+        "32":"bekhorot",
+        "33":"arakhin",
+        "34":"temurah",
+        "35":"keritot",
+        "36":"meilah",
+        "37":"tamid",
+        "38":"niddah"
+    }
+
 path = "source/"+book_map[bookId]+"/"+dafId+".mm"
 g = Github(token)
 repo = g.get_repo("eliecohen/dafyomi")
