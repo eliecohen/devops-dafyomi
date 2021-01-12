@@ -76,7 +76,7 @@ book_map = {
         "38":"niddah"
     }
 
-path = "source/"+book_map[bookId]+"/"+dafId+".mm"
+path = "maps/"+book_map[bookId]+"/"+dafId+".mm"
 g = Github(token)
 repo = g.get_repo("eliecohen/dafyomi")
 try:
