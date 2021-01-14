@@ -86,7 +86,7 @@ except:
     a = repo.create_file(path, "create "+path, flowchart_content)
 print(a)
 
-os.system('SCHTASKS.EXE /RUN /TN "ouriel"') 
+os.system('SCHTASKS.EXE /RUN /TN "freemind"') 
 
 time_to_wait = 40
 time_counter = 0
