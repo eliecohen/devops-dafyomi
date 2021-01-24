@@ -2,6 +2,7 @@ import os
 import boto3
 import sys
 import time
+import subprocess
 import botocore
 from github import Github
 
@@ -100,8 +101,11 @@ while not os.path.exists("c:\\output.html") or not os.path.exists("c:\\output.ht
 
 #s3_2 = boto3.resource('s3')
 
-os.system("aws s3 cp c:\\output.html s3://daf-yomi/assets/"+bookId+"/"+dafId+".html") 
-os.system("aws s3 cp c:\\output.html_files\\image.png s3://daf-yomi/assets/"+bookId+"/"+dafId+".png") 
+
+#os.system("aws s3 cp c:\\output.html s3://daf-yomi/assets/"+bookId+"/"+dafId+".html") 
+subprocess.run("aws s3 cp c:\\output.html s3://daf-yomi/assets/"+bookId+"/"+dafId+".html", shell=True)
+#os.system("aws s3 cp c:\\output.html_files\\image.png s3://daf-yomi/assets/"+bookId+"/"+dafId+".png") 
+subprocess.run("aws s3 cp c:\\output.html_files\\image.png s3://daf-yomi/assets/"+bookId+"/"+dafId+".png", shell=True)
 
 #try:
 #    s3_2.meta.client.upload_file('c:\\output.html', "daf-yomi", "assets/"+bookId+"/"+dafId+".html")
@@ -120,6 +124,6 @@ os.system("aws s3 cp c:\\output.html_files\\image.png s3://daf-yomi/assets/"+boo
 #with open("c:\\output.html_files\\image.png", "rb") as f:
 #    s3.upload_fileobj(f, "daf-yomi", "assets/"+bookId+"/"+dafId+".png")
 
-time.sleep(20)
+#time.sleep(20)
 
 print("file uploaded to s3")
