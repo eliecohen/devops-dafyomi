@@ -120,6 +120,6 @@ os.system("aws s3 cp c:\\output.html_files\\image.png s3://daf-yomi/assets/"+boo
 #with open("c:\\output.html_files\\image.png", "rb") as f:
 #    s3.upload_fileobj(f, "daf-yomi", "assets/"+bookId+"/"+dafId+".png")
 
-time.sleep(10)
+time.sleep(20)
 
 print("file uploaded to s3")
