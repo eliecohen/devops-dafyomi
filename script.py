@@ -101,11 +101,14 @@ while not os.path.exists("c:\\output.html") or not os.path.exists("c:\\output.ht
 
 #s3_2 = boto3.resource('s3')
 
+time.sleep(5)
 
 #os.system("aws s3 cp c:\\output.html s3://daf-yomi/assets/"+bookId+"/"+dafId+".html") 
 subprocess.run("aws s3 cp c:\\output.html s3://daf-yomi/assets/"+bookId+"/"+dafId+".html", shell=True)
 #os.system("aws s3 cp c:\\output.html_files\\image.png s3://daf-yomi/assets/"+bookId+"/"+dafId+".png") 
 subprocess.run("aws s3 cp c:\\output.html_files\\image.png s3://daf-yomi/assets/"+bookId+"/"+dafId+".png", shell=True)
+
+time.sleep(5)
 
 #try:
 #    s3_2.meta.client.upload_file('c:\\output.html', "daf-yomi", "assets/"+bookId+"/"+dafId+".html")
